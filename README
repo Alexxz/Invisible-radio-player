@@ -1,3 +1,5 @@
 This is just a test project for github.com. For one my project i need
 the invisible flash radio player to integrate with web project. It 
 must plays any Shoutcast and Icecast streams. 
+
+To compile this project you will need msasc compiler.
