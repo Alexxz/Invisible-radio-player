@@ -5,3 +5,4 @@ must plays any Shoutcast and Icecast streams.
 To compile this project you will need mtasc compiler.
 To run test example you will need http server because flash sequrity policies.
 
+For some reason every Shoutcast link must finished with semicolon(;)
