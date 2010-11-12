@@ -4,10 +4,14 @@
 	</head>
 	<body>
 		<input type="button" value="play radio" onclick="document.getElementById('obj2').sndPlay();" />
+		<input type="button" value="stop radio" onclick="document.getElementById('obj2').sndStop();" />
+		<br>
+		<input type="text" value="http://91.121.182.57:9080/;" id="custom_radio" />
+		<input type="button" value="play custom" onclick="document.getElementById('obj2').sndPlay(document.getElementById('custom_radio').value);"
 		<br/>
 		<div style="background-color:#FDD; width:500px;">
-			This little white square is radio player -&gt;
-			<embed src="test.swf" width="10" height="10" id="obj2"></embed>
+			Do you see something here? -&gt
+			<embed src="test.swf" width="1" height="1" id="obj2" wmode="transparent" ></embed>
 		</div>
 	</body>
 </html>

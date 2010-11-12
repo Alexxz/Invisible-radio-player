@@ -6,18 +6,26 @@ class InvisibleRadioPlayer {
 
 	function InvisibleRadioPlayer() {
 		ExternalInterface.addCallback( "sndPlay", this, sndPlay );
-		var _l1 = _root;
-		var _l2 = this;
-		_l2.counter.text = "00:00:00";
-		_l1.stream = new Sound();
+		ExternalInterface.addCallback( "sndStop", this, sndStop );
 	}
 	
-	function sndPlay(){
-		_root.stream.loadSound("http://91.121.182.57:9080/;", true);
-		_root.stream.play();
-		return 1;
+	function sndPlay(url){
+		if(!url) { url = "http://91.121.182.57:9080/;" }
+		if(!_root.stream){
+			_root.stream = new Sound();
+			_root.stream.loadSound(url, true); // true -isStreaming
+			_root.stream.play();
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 
+	function sndStop(){
+		_root.stream.stop();
+		_root.stream = null;
+		return 1;
+	}
 
 	// entry point
 	static function main(mc) {
