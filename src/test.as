@@ -7,9 +7,10 @@ class InvisibleRadioPlayer {
 	// Constructor off application
 	function InvisibleRadioPlayer() {
 		// methods available from javascript
-		ExternalInterface.addCallback( "sndPlay", this, sndPlay );
-		ExternalInterface.addCallback( "sndStop", this, sndStop );
-
+		ExternalInterface.addCallback( "sndPlay",    this, sndPlay );
+		ExternalInterface.addCallback( "sndStop",    this, sndStop );
+		ExternalInterface.addCallback( "sndTrigger", this, sndTrigger );
+		
 		// check flashvars 
 		if(_root.autoplay){
 			if(_root.url){
@@ -17,6 +18,16 @@ class InvisibleRadioPlayer {
 			} else {
 				this.sndPlay();
 			}
+		}
+	}
+	
+	function sndTrigger(url){
+		if(_root.stream){
+			this.sndStop();
+			return 0;
+		} else {
+			this.sndPlay(url);
+			return 1;
 		}
 	}
 	

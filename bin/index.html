@@ -3,11 +3,19 @@
 		<title>Radio player test page</title>
 	</head>
 	<body>
-		<input type="button" value="play radio" onclick="document.getElementById('obj2').sndPlay();" />
-		<input type="button" value="stop radio" onclick="document.getElementById('obj2').sndStop();" />
+		<script>
+			function get_radio(){
+				return document.getElementById('obj2');
+			}
+		</script>
+		<input type="button" value="play radio" onclick="get_radio().sndPlay();" />
+		<input type="button" value="stop radio" onclick="get_radio().sndStop();" />
+		<br>
+		<input type="button" value="trigger stopped" 
+		onclick="if(get_radio().sndTrigger()){this.value='trigger started'}else{this.value='trigger stopped'}" />
 		<br>
 		<input type="text" value="http://91.121.182.57:9080/;" id="custom_radio" />
-		<input type="button" value="play custom" onclick="document.getElementById('obj2').sndPlay(document.getElementById('custom_radio').value);"
+		<input type="button" value="play custom" onclick="get_radio().sndPlay(document.getElementById('custom_radio').value);"
 		<br/>
 		<div style="background-color:#FDD; width:500px;">
 			Do you see something here? -&gt
