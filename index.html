@@ -5,30 +5,36 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-	<title>Invisible-radio-player @ GitHub</title>
+	<title>Invisible radio player (IRP) @ GitHub</title>
 	
 	<style type="text/css">
 		body {
-  		margin-top: 1.0em;
-  		background-color: #a2eaf7;
-		  font-family: "Helvetica,Arial,FreeSans";
-  		color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
+			margin-top: 1.0em;
+			background-color: #a2eaf7;
+			font-family: "Helvetica,Arial,FreeSans";
+			color: #000000;
+		}
+		#container {
+			margin: 0 auto;
+			width: 700px;
+		}
 		h1 { font-size: 3.8em; color: #5d1508; margin-bottom: 3px; }
 		h1 .small { font-size: 0.4em; }
+		h1.top_head {text-align:center}
 		h1 a { text-decoration: none }
 		h2 { font-size: 1.5em; color: #5d1508; }
-    h3 { text-align: center; color: #5d1508; }
-    a { color: #5d1508; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
+		h3 { text-align: center; color: #5d1508; }
+		a { color: #5d1508; }
+		.description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+		.download { float: right; }
 		pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
+		hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+		.footer { text-align:center; padding-top:30px; font-style: italic; }
+		.player_line {background-color:#FDD;text-align:center}
+		.buttons_container {text-align:center}
+		.play_button {background-image:url(img/play.png);background-repeat:no-repeat;padding-left:32px; height:42px}
+		.stop_button {background-image:url(img/stop.png);background-repeat:no-repeat;background-position:2px 2px; padding-left:36px; height:42px}
+		.trigger_button {height:42px}
 	</style>
 	
 </head>
@@ -45,27 +51,14 @@
         <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
     </div>
 
-    <h1><a href="http://github.com/KingAlexxz/Invisible-radio-player">Invisible-radio-player</a></h1>
+    <h1 class="top_head"><a href="http://github.com/KingAlexxz/Invisible-radio-player">Invisible radio player</a></h1>
 
     <div class="description">
       Icecast and Shoutcast flash player. Controlled by javascript. Player simply integrates with your website.
     </div>
     
     <h2>Example</h2>
-    <script>
-        function get_radio(){
-        return document.getElementById('obj2');
-        }
-    </script>
-    <input type="button" value="play radio" onclick="get_radio().sndPlay();" />
-    <input type="button" value="stop radio" onclick="get_radio().sndStop();" />
-    <input type="button" value="trigger stopped" 
-        onclick="if(get_radio().sndTrigger()){this.value='trigger started'}else{this.value='trigger stopped'}" />
-    <br>
-    <input type="text" value="http://91.121.182.57:9080/;" id="custom_radio" />
-    <input type="button" value="play custom" onclick="get_radio().sndPlay(document.getElementById('custom_radio').value);"
-    <br/>
-    <div style="background-color:#FDD;">
+    <div class="player_line">
         Do you see something here? -&gt
         <embed src="irp.swf" width="1" height="1" id="obj2" wmode="transparent" ></embed>
         &lt;- No! Because it is invisible!
@@ -74,6 +67,20 @@
         <embed src="irp.swf" width="1" height="1" id="obj2" wmode="transparent" flashvars="autoplay=1&url=..."></embed>
         -->
     </div>
+    <script>
+        function get_radio(){return document.getElementById('obj2');}
+        function get_link(){return document.getElementById('custom_radio').value;}
+    </script>
+    <div class="buttons_container">
+		<input type="button" value="play radio" onclick="get_radio().sndPlay();" class="play_button" />
+		<input type="button" value="stop radio" onclick="get_radio().sndStop();" class="stop_button" />
+		<input type="button" value="trigger stopped" class="trigger_button"
+		    onclick="if(get_radio().sndTrigger()){this.value='trigger started'}else{this.value='trigger stopped'}" />
+		<br>
+		<input type="text" value="http://91.121.182.57:9080/;" id="custom_radio" />
+		<input type="button" value="play custom" onclick="get_radio().sndPlay(get_link());"
+    </div>
+    <br/>
 
 
     <h2>Authors</h2>
@@ -99,6 +106,6 @@
 
   </div>
 
-  
+
 </body>
 </html>
