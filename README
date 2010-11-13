@@ -2,8 +2,8 @@ Invisible radio player - is a very simple and lightweight flash radio player
 for any webpage. All you need is add one line on your page. IRP can play 
 Icecast and Shoutcast streams.
 
-<embed src="http://kingalexxz.github.com/Invisible-radio-player/irp.swf" width="1" height="1" 
-    wmode="transparent" flashvars="autoplay=1&url=http://91.121.182.57:9080/;"></embed>
+<embed src="http://kingalexxz.github.com/Invisible-radio-player/irp.swf " width="1" height="1" 
+    wmode="transparent" flashvars="autoplay=1&url=http://91.121.182.57:9080/; "></embed>
 
 If you need to control this player just see examples page.
 
